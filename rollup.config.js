@@ -1,9 +1,7 @@
 export default {
   input: 'src/index.ts',
-  output: [
-    {
-      file: 'index.js',
-      format: 'cjs',
-    },
-  ],
+  output: {
+    dir: 'dist',
+    format: 'cjs',
+  },
 };
