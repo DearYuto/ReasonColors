@@ -5,10 +5,11 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "yarn clean && yarn && rollup -c",
+    "clean": "git clean -fdX"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "rollup": "^4.12.0",
     "typescript": "^5.3.3"
