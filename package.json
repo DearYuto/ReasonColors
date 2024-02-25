@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "yarn clean && yarn && rollup -c",
+    "build:css" : "node ./scripts/createCssModule.js",
     "clean": "git clean -fdX"
   },
   "author": "",
