@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "module": "ESNext",
+    "target": "ES2015",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "moduleResolution": "node"
+  },
+  "include": ["./src"]
+}
