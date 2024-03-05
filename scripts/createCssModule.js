@@ -3,7 +3,9 @@ import path from 'path';
 
 import * as colors from '../dist/index.js';
 
-const LIGHT_SELECTOR = ':root, .light, .light-theme';
+import { REG_EXP } from './constants/format.js';
+import { LIGHT_SELECTOR, SELECTOR_NAME } from './constants/selector.js';
+import { doesNotIncludeSubstring } from './utils/doesNotIncludeSubstring.js';
 
 /**
  *
@@ -21,7 +23,7 @@ const toLowerCase = (value) => {
  * @returns {string}
  */
 const convertCssName = (value) => {
-  const reformatPattern = /([a-z]+)(A)?(\d+)/;
+  const reformatPattern = REG_EXP.reformatPattern;
   const match = value.match(reformatPattern);
   const hasOptional = match?.[2] ? true : false;
 
@@ -34,8 +36,9 @@ const convertCssName = (value) => {
   return match ? `${toLowerCase(match[1])}-${toLowerCase(match[3])}` : value;
 };
 
-const convertFileName = (value) => {
-  return value.replace(/Alpha$/, '-alpha');
+const convertFileName = (baseName) => {
+  // ! Alpha와 결합되어 있음 -> 순수함수로 만들어서 재사용하려면 ?
+  if (baseName) return baseName.replace(/Alpha$/, `${SELECTOR_NAME.ALPHA}`);
 };
 
 /**
@@ -59,7 +62,7 @@ const genCssFile = (name, data) => {
 };
 
 Object.keys(colors)
-  .filter((name) => !name.includes('P3'))
+  .filter((name) => doesNotIncludeSubstring(name, 'P3'))
   .forEach((color) => {
     const colorInfos = Object.entries(colors).find(([key, _]) => key === color);
     const colorName = convertFileName(colorInfos[0]);
