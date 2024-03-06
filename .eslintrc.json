@@ -1,0 +1,14 @@
+{
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+  "extends": [],
+  "rules": {
+    "no-unused-vars": "error",
+    "eqeqeq": "warn",
+    "prefer-const": ["error", { "destructuring": "all" }],
+    "prettier/prettier": ["warn", { "endOfLine": "auto" }]
+  },
+  "plugins": ["prettier"]
+}
