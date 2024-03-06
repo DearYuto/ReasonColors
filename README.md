@@ -2,6 +2,14 @@
 
 Color 라이브러리 만들기
 
+> **실행 방법**
+
+```
+
+yarn start
+
+```
+
 ## GOAL 💎
 
 - [Radix Colors](https://github.com/radix-ui/colors) 라이브러리 코드를 참고하며 학습한다.
